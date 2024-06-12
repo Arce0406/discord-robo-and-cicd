@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  discord_transltor_bot:
+    container_name: 'discord_bot'
+    restart: always
+    build:
+      context: .
+    environment:
+    - TZ=Asia/Taipei
+
+networks:
+  default:
+    external: true
+    name: nginxproxyman
