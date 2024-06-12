@@ -34,8 +34,10 @@ jobs:
 
       - name: Build Docker image
         run: |
+          touch .env
           echo ${{ secrets.DISCORD_TOKEN }} > .env
           echo ${{ secrets.DISCORD_CLIENT_ID }} > .env
+          echo NODE_OPTIONS="--enable-source-maps" > .env
           docker build -t ${{ matrix.namespace }}/${{ matrix.image_name }}:latest .
 
       - name: Push Docker image
