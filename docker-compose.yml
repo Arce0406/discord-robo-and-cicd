@@ -10,7 +10,7 @@ services:
       - DISCORD_TOKEN=${DISCORD_TOKEN}
       - DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
 
-networks:
-  default:
-    external: true
-    name: nginxproxyman
+# networks:
+#   default:
+#     external: true
+#     name: nginxproxyman
