@@ -1,6 +1,3 @@
-# How to use
-## docker build -t discord_bee_transltor .
-
 # Use nodejs slim version for minify
 FROM node:20-slim AS base
 
@@ -22,4 +19,4 @@ ENV DISCORD_TOKEN=${DISCORD_BOT_TOKEN}
 ARG DISCORD_CLIENT_ID
 ENV DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
 
-CMD [ "pnpm", "robo", "start"]
+CMD [ "npm", "robo", "start"]
