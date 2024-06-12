@@ -3,26 +3,18 @@
 
 # Use nodejs slim version for minify
 FROM node:20-slim AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
 
-# 啟用pnpm
-RUN corepack enable
 # 指定工作路徑
 COPY . /app
 WORKDIR /app
 
-# Create a new image for production dependencies
-FROM base AS prod-deps
-# Install production dependencies
-# use a cache if available
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
+# 複製 package.json 和 package-lock.json
+COPY package*.json ./
 
-# Create build image for building the TypeScript code
-FROM base AS build
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm add typescript -g
-RUN pnpm run build
+RUN npm install
+
+# 複製應用程式代碼
+COPY . .
 
 # 設定環境變數
 ARG DISCORD_TOKEN
@@ -30,8 +22,4 @@ ENV DISCORD_TOKEN=${DISCORD_BOT_TOKEN}
 ARG DISCORD_CLIENT_ID
 ENV DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
 
-# Create an image base
-FROM base
-COPY --from=prod-deps /app/node_modules /app/node_modules
-COPY --from=build /app/robo /app/robo
 CMD [ "pnpm", "robo", "start"]
