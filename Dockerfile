@@ -24,6 +24,12 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm add typescript -g
 RUN pnpm run build
 
+# 設定環境變數
+ARG DISCORD_TOKEN
+ENV DISCORD_TOKEN=${DISCORD_BOT_TOKEN}
+ARG DISCORD_CLIENT_ID
+ENV DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
+
 # Create an image base
 FROM base
 COPY --from=prod-deps /app/node_modules /app/node_modules
