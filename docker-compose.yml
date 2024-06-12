@@ -7,8 +7,8 @@ services:
       context: .
     environment:
       - TZ=Asia/Taipei
-      - DISCORD_TOKEN=${DISCORD_TOKEN}
-      - DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
+      # - DISCORD_TOKEN=${DISCORD_TOKEN}
+      # - DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
 
 # networks:
 #   default:
