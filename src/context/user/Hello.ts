@@ -1,3 +1,7 @@
+/**
+ * @file src/context/user/Hello.ts
+ * @description Say hello to a user.
+ */
 import type { CommandConfig } from 'robo.js'
 import type { UserContextMenuCommandInteraction, GuildMember } from 'discord.js'
 

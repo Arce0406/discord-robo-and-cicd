@@ -1,3 +1,7 @@
+/**
+ * @file src/modules/time/commands/timezone.ts
+ * @description Get user's timezone.
+ */
 import type { CommandConfig } from 'robo.js'
 import type { CommandInteraction } from 'discord.js'
 

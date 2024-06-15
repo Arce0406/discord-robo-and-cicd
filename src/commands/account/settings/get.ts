@@ -1,3 +1,7 @@
+/**
+ * @file src/commands/account/settings/get.ts
+ * @description Get user's account settings.
+ */
 import { Flashcore } from 'robo.js'
 import type { CommandInteraction } from 'discord.js'
 import { AccountSettingType } from '../../../types/AccountSettingType'

@@ -1,3 +1,7 @@
+/**
+ * @file src/modules/time/commands/timestamp.ts
+ * @description Convert time to Unix Timestamp with user's timezone.
+ */
 import type { CommandConfig } from 'robo.js'
 import type { CommandInteraction } from 'discord.js'
 import { TimestampStyles, time, codeBlock } from 'discord.js'

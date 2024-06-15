@@ -1,5 +1,9 @@
+/**
+ * @file src/commands/ping.ts
+ * @description Replies with Pong!
+ */
 import type { CommandConfig } from 'robo.js'
-import type { Client, CommandInteraction } from 'discord.js'
+import type { CommandInteraction } from 'discord.js'
 
 export const config: CommandConfig = {
 	description: 'Replies with Pong!'

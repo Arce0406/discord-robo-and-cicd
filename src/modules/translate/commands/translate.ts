@@ -1,6 +1,10 @@
-import type { CommandConfig } from 'robo.js'
+/**
+ * @file src/modules/translate/commands/translate.ts
+ * @description Translate text to another language.
+ */
 import { AI } from '@robojs/ai'
-import { GuildMember, bold, type CommandInteraction } from 'discord.js'
+import type { CommandInteraction } from 'discord.js'
+import type { CommandConfig } from 'robo.js'
 
 const languageOptions = [
     { name: 'English/英語', value: 'English' },
