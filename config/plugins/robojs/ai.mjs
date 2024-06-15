@@ -9,7 +9,7 @@ export default {
     // commands: ['translate'],
 
     // Knowledge injection & long-term memory. (boolean; default: true)
-    // insights: true,
+    insights: false,
 
     // Assistant API delay for OpenAI rate limiting (number; default: 1_000)
     // pollDelay: 4_000,

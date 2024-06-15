@@ -34,27 +34,27 @@ export const config: CommandConfig = {
     ]
 }
 
-export default async (interaction: CommandInteraction, user: GuildMember) => {
-    const channel = interaction.channel
+export default async (interaction: CommandInteraction) => {
     const text = interaction.options.get('text')?.value as string
     const sourceLanguage = interaction.options.get('source-language')?.value as string
     const targetLanguage = interaction.options.get('target-language')?.value as string
+    console.log('Text:', text)
+    console.log('Source Language:', sourceLanguage)
+    console.log('Target Language:', targetLanguage)
 
-    await AI.chat([
-        {
-            role: 'system',
-            content: `You will be provided with a sentence in ${sourceLanguage}, and your task is to translate it into ${targetLanguage}.`,
-        },
-        {
-            role: 'user',
-            content: text,
-        }
-    ], {
-        channel: channel,
-        member: user,
-        onReply(reply) {
-            console.log('Reply:')
-            console.log(reply)
-        },
+    const response = await AI.chatSync([{
+        role: 'system',
+        content: `You will be provided with a sentence in ${sourceLanguage}, and your task is to translate it into ${targetLanguage}.`,
+    }, {
+        role: 'user',
+        content: text,
+    }], {
+        channel: interaction.channel,
+        member: interaction.member,
     })
+
+    console.log('Response:')
+    console.log(response)
+
+    return response.text
 }
