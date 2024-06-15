@@ -20,15 +20,19 @@
 		"invite": "robo invite",
 		"lint:style": "prettier --write .",
 		"start": "robo start",
-		"upgrade": "sage upgrade"
+		"upgrade": "sage upgrade",
+		"upgrade:robo": "robo upgrade",
+		"drop": "node ./src/drop-commands.js"
 	},
 	"dependencies": {
+		"@robojs/ai": "^0.5.4",
 		"discord.js": "^14.15.3",
 		"robo.js": "^0.10.9"
 	},
 	"devDependencies": {
 		"@swc/core": "^1.5.28",
 		"@types/node": "^20.14.2",
+		"dotenv": "^16.4.5",
 		"prettier": "^3.3.2",
 		"typescript": "^5.4.5"
 	}
