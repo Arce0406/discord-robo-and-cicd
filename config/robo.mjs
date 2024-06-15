@@ -14,10 +14,9 @@ export default {
 	plugins: [],
 	type: 'robo',
 	logger: {
-		level: 'debug',
+		level: 'info',
 	},
 	experimental: {
 		userInstall: true,
-		incrementalBuilds: true,
 	}
 }

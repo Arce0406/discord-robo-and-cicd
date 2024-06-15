@@ -3,7 +3,6 @@ import type { UserContextMenuCommandInteraction, GuildMember } from 'discord.js'
 
 export const config: CommandConfig = {
     description: 'Hello world!',
-
 }
 
 export default async function (interaction: UserContextMenuCommandInteraction, user: GuildMember) {
